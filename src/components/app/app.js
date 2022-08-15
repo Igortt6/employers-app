@@ -6,6 +6,13 @@ import EmployeesList from '../employers-list/employers-list';
 import EmployeesAddForm from '../employers-add-form/employers-add-form';
 
 function App() {
+
+    const data = [
+        {name: 'Junior S', salary: 800, increase: true},
+        {name: 'Midle A', salary: 3000, increase: false},
+        {name: 'Senior B', salary: 5000, increase: false}
+    ];
+
     return (
         <div className="app">
             <AppInfo/>
@@ -14,7 +21,8 @@ function App() {
                 <SearchPanel/>
                 <AppFilter/>
             </div>
-            <EmployeesList/>
+            {/* назначаем в пропсы - массив данных */}
+            <EmployeesList data={data}/> 
             <EmployeesAddForm/>
 
        </div>
