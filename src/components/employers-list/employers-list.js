@@ -4,9 +4,11 @@ import './employees-list.css';
 
 const EmployeesList = ({data}) => {
 
-    const elements = data.map(item => {
+    const elements = data.map(item =>  {
+        // Деструктурируем пропс Id от других пропсов
+        const {id, ...itemProps} = item;
         return (
-            <EmployeesListItem {...item}/>
+            <EmployeesListItem key={id} {...itemProps}/>
         )
     })
 
