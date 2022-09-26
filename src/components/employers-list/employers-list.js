@@ -2,13 +2,16 @@ import EmployeesListItem from "../employers-list-item/employers-list-item";
 
 import './employees-list.css';
 
-const EmployeesList = ({data}) => {
+const EmployeesList = ({data, onDelete}) => {
 
     const elements = data.map(item =>  {
         // Деструктурируем пропс Id от других пропсов
         const {id, ...itemProps} = item;
         return (
-            <EmployeesListItem key={id} {...itemProps}/>
+            <EmployeesListItem 
+                key={id} 
+                {...itemProps}
+                onDelete={() => onDelete(id)}/>
         )
     })
 
