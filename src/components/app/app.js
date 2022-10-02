@@ -34,6 +34,7 @@ class App extends Component {
             name, 
             salary,
             increase: false,
+            rise: false,
             id: this.maxId++
         }
         this.setState(({data}) => {
@@ -44,19 +45,26 @@ class App extends Component {
         });
     }
 
-    onToggleRise = (id) => {
-        console.log(`'Rise :>> ', ${id}`);
-    }
 
-    onToggleIncrease = (id) => {
-        console.log(`'Increase :>> ', ${id}`);
+    // возвращаем новый объект, со свойством data с новым массивом (.map(), через кол бек функцию). Если id совпали, возвращаем новый объет. Или возвращаем новый измененный объет
+    onToggleProp = (id, prop) => {
+        this.setState(({data}) => ({
+            data: data.map(item => {
+                if (item.id === id) {
+                    return {...item, [prop]: !item[prop]}
+                }
+                return item;
+            })
+        }))
     }
 
 
     render() {
+        const employees = this.state.data.length;
+        const increase = this.state.data.filter(item => item.increase).length;
         return (
             <div className="app">
-                <AppInfo/>
+                <AppInfo employees={employees} increase={increase}/>
     
                 <div className="search-panel">
                     <SearchPanel/>
@@ -66,8 +74,7 @@ class App extends Component {
                 <EmployeesList 
                     data={this.state.data}
                     onDelete={this.deleteItem}
-                    onToggleRise={this.onToggleRise}
-                    onToggleIncrease={this.onToggleIncrease}/> 
+                    onToggleProp={this.onToggleProp}/> 
                 <EmployeesAddForm
                     onAdd={this.addItem}/>
     
