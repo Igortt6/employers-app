@@ -1,6 +1,9 @@
 import { Component } from 'react';
 import './search-panel.css'
 
+// 1) создаем локальный term
+//2) записываем туда данные из Input. 
+//3) отправляем локальный term в App. Cинхронизируем с глобальм уже в App.js
 
 class searchPanel extends Component {
     constructor(props) {

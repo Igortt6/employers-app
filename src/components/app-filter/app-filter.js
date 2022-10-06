@@ -7,6 +7,7 @@ const AppFilter = (props) => {
         {name: 'moreThan1000', label: 'З/П больше 1000$'}
     ];
 
+    // По клику на кнопку, передаем ее имя в App. Через clazz проверяем все кнопки, на совпадение с filter в App. Меняем класс у совпедений
     const buttons = buttonsData.map(({name, label}) => {
         const active = props.filter === name;
         const clazz = active ? 'btn-light' : 'btn-outline-light'
