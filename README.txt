@@ -1,6 +1,6 @@
 Навчальний React app.
 
-Полный курс по JavaScript + React - с нуля до результата. Раздел 6.
+Полный курс по JavaScript + React - с нуля до результата. Раздел 6. REACT, 1 проект
 
 https://www.udemy.com/course/javascript_full/learn/lecture/28521739#search
 В проекті реалізовано:
